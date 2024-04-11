@@ -37,4 +37,4 @@ jobs:
           script: |
             git pull https://github.com/eli-pavlov/realtime-cicd-project.git
             docker pull ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.APP_NAME }}:${{ github.sha }}
-            kubectl apply -f ./deployment.yaml -f ./service.yaml
+            kubectl apply -f ./deployment.yaml
