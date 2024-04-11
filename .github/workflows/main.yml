@@ -37,4 +37,5 @@ jobs:
           script: |
             git pull https://github.com/eli-pavlov/realtime-cicd-project.git
             docker pull ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.APP_NAME }}:latest
+            kubectl delete deploy compliment-generator
             kubectl apply -f deployment.yaml
