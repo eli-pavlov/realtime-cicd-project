@@ -10,7 +10,9 @@ spec:
     port: 80
     targetPort: 5000
   type: LoadBalancer
+
 ---
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -27,9 +29,6 @@ spec:
     spec:
       containers:
       - name: compliment-generator
-        image: "${COMPLIMENT_GENERATOR_IMAGE}"
+        image: "{{ env.COMPLIMENT_GENERATOR_IMAGE }}"  # Use environment variable
         ports:
         - containerPort: 5000
-        env:
-        - name: COMPLIMENT_GENERATOR_IMAGE
-          value: "/compliment-generator:latest"
