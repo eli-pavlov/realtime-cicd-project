@@ -1,0 +1,5 @@
+{
+    "yaml.schemas": {
+        "kubernetes://schema/v1%40service": "vscode-vfs://github/eli-pavlov/realtime-cicd-project/deployment.yaml"
+    }
+}

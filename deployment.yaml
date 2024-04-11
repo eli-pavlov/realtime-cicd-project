@@ -19,6 +19,11 @@ metadata:
   name: compliment-generator
 spec:
   replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
   selector:
     matchLabels:
       app: compliment-generator
@@ -29,6 +34,6 @@ spec:
     spec:
       containers:
       - name: compliment-generator
-        image: "{{ env.COMPLIMENT_GENERATOR_IMAGE }}"  # Use environment variable
+        image: elipavlov/rtproject:latest
         ports:
         - containerPort: 5000
