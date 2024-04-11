@@ -7,8 +7,9 @@ spec:
     app: compliment-generator
   ports:
   - protocol: TCP
-    port: 88
+    port: 80
     targetPort: 5000
+    nodePort: 80
   type: NodePort
 
 ---
