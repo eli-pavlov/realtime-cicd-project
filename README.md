@@ -1,2 +1,2 @@
-# realtime-cicd-gitactions
-realtime-cicd-gitactions
+# realtime-cicd-project
+realtime-cicd-project
