@@ -10,7 +10,7 @@ spec:
     port: 80
     targetPort: 5000
     nodePort: 80
-  type: NodePort
+  type: ClusterIP
 
 ---
 
