@@ -9,7 +9,7 @@ spec:
   - protocol: TCP
     port: 88
     targetPort: 5000
-  type: ClusterIP
+  type: NodePort
 
 ---
 
