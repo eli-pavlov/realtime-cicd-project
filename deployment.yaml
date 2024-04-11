@@ -21,6 +21,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: compliment-generator
+  labels:
+    app: compliment-generator
 spec:
   replicas: 1
   strategy:
