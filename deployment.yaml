@@ -27,6 +27,9 @@ spec:
     spec:
       containers:
       - name: compliment-generator
-        image: /compliment-generator:latest
+        image: "${COMPLIMENT_GENERATOR_IMAGE}"
         ports:
         - containerPort: 5000
+        env:
+        - name: COMPLIMENT_GENERATOR_IMAGE
+          value: "/compliment-generator:latest"
