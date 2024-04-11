@@ -37,3 +37,10 @@ spec:
         image: elipavlov/rtproject:latest
         ports:
         - containerPort: 5000
+        resources:
+          limits:
+            cpu: "0.5" # 0.5 CPU cores
+            memory: "512Mi" # 512 MB memory
+          requests:
+            cpu: "0.1" # 0.1 CPU cores
+            memory: "128Mi" # 128 MB memory
