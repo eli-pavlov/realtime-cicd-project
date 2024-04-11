@@ -25,15 +25,13 @@ jobs:
           platforms: linux/arm64
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.APP_NAME }}:${{ github.sha }}
 
-      - name: SSH into Remote Machine
-        uses: nyancatdaffy/ssh-action@v2
+      - name: Pull and Deploy App
+        uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.REMOTE_MACHINE_IP }}
           username: ${{ secrets.REMOTE_MACHINE_USER }}
-          privateKey: ${{ secrets.REMOTE_MACHINE_KEY }}
-
-      - name: Pull Docker Image
-        run: ssh ${{ secrets.REMOTE_MACHINE_USER }}@${{ secrets.REMOTE_MACHINE_IP }} docker pull ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.APP_NAME }}:${{ github.sha }}
-
-      - name: Deploy to Kubernetes (replace with your deployment command)
-        run: ssh ${{ secrets.REMOTE_MACHINE_USER }}@${{ secrets.REMOTE_MACHINE_IP }} kubectl apply -f deployment.yaml -f service.yaml
+          key: ${{ secrets.REMOTE_MACHINE_KEY }}
+          port: ${{ secrets.REMOTE_MACHINE_PORT }}
+          script: |
+            docker pull ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.APP_NAME }}:${{ github.sha }}
+            kubectl apply -f deployment.yaml -f service.yaml
