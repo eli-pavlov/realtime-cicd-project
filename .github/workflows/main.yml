@@ -36,6 +36,5 @@ jobs:
           port: ${{ secrets.REMOTE_MACHINE_PORT }}
           script: |
             git pull https://github.com/eli-pavlov/realtime-cicd-project.git
-            docker pull ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.APP_NAME }}:${{ github.sha }}
-            export COMPLIMENT_GENERATOR_IMAGE="${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.APP_NAME }}:${{ github.sha }}"
+            docker pull ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.APP_NAME }}:latest
             kubectl apply -f deployment.yaml
