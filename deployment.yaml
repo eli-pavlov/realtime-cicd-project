@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: compliment-generator
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: compliment-generator
+  template:
+    metadata:
+      labels:
+        app: compliment-generator
+    spec:
+      containers:
+      - name: compliment-generator
+        image: your_dockerhub_username/compliment-generator:latest
+        ports:
+        - containerPort: 5000
