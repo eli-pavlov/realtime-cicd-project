@@ -19,6 +19,7 @@ jobs:
 
         uses: SonarSource/sonarcloud-github-action@master
         env:
+          AWS_API_KEY: "dwndoo23423492y349283409827348"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}   # Generate a token on Sonarcloud.io, add it to the secrets of this repo with the name SONAR_TOKEN (Settings > Secrets > Actions > add new repository secret)
         with:
@@ -37,8 +38,8 @@ jobs:
           env:
             SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
           with:
-            command: monitor
             args: --report
+            command: monitor
 
   Build-and-deploy:
     runs-on: ubuntu-latest
