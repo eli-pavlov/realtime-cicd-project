@@ -11,7 +11,7 @@ permissions:
   pull-requests: read
 
 jobs:
-  SonarCloudAnalysis-CodeQuality:
+  SonarCloud-CodeQuality-Analysis:
     runs-on: ubuntu-latest
 
     steps:
@@ -27,7 +27,7 @@ jobs:
             -Dsonar.projectKey=eli-devops-training_rtproject
             -Dsonar.organization=eli-devops-training
 
-  SNYKAnalysis-Security:
+  SNYK-Security-Analysis:
       runs-on: ubuntu-latest
 
       steps:
@@ -69,12 +69,10 @@ jobs:
 
       - name: Calculate last major version
         run: |
-          echo "${{ env.VERSION }}"
           MAJOR_VERSION=$(echo "${{ env.VERSION }}" | cut -d'.' -f1)
           LAST_MAJOR_VERSION=$((MAJOR_VERSION - 1))
           echo $LAST_MAJOR_VERSION >> $GITHUB_ENV  # Set environment variable
           echo "::set-output name=LAST_MAJOR_VERSION::$LAST_MAJOR_VERSION"
-          cat $LAST_MAJOR_VERSION
 
       - name: Delete Docker Hub images up to last major version
         run: |
