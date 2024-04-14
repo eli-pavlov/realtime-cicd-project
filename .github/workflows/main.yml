@@ -50,6 +50,6 @@ jobs:
             git pull https://github.com/eli-pavlov/realtime-cicd-project.git
             docker pull ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.APP_NAME }}:${{ env.VERSION }}
             sed -i "s/elipavlov\/rtproject:latest/elipavlov\/rtproject:${{ env.VERSION }}/g" ./deployment.yaml  # Replace placeholder with version
-            sed -i "s/app: compliment-generator-[0-9]\+\.[0-9]\+:/app: compliment-generator-${{ env.VERSION }}:/g" ./deployment.yaml
+            sed -i "s/compliment-generator-[0-9]\+\.[0-9]\/compliment-generator-${{ env.VERSION }}/g" ./deployment.yaml
             echo "Modified deployment.yaml with version: ${{ env.VERSION }}"
             kubectl apply -f deployment.yaml
