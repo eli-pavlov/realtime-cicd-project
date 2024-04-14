@@ -68,7 +68,13 @@ jobs:
           MAJOR_VERSION=$(echo "${VERSION}" | cut -d'.' -f1)
           echo "LAST_MAJOR_VERSION=$((MAJOR_VERSION - 1))" >> $GITHUB_ENV
     
-
+      - name: Delete previous major versions
+        run: |
+          MAJOR_VERSION=$(echo "${{ env.VERSION }}" | cut -d'.' -f1)
+          LAST_MAJOR_VERSION=$((MAJOR_VERSION - 1))
+          # Filter tags for the specific app name and exclude the current major version
+          docker images ls --format '{{.Repository}}:{{.Tag}}' | grep -v "${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.APP_NAME }}:$MAJOR_VERSION\.[^.]*" | grep "${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.APP_NAME }}:"$LAST_MAJOR_VERSION"\.' | xargs -I {} docker image rm {}
+          
       - name: Delete previous major versions
         run: |
           MAJOR_VERSION=$(echo "${{ env.VERSION }}" | cut -d'.' -f1)
