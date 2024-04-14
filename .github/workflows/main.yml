@@ -29,7 +29,6 @@ jobs:
 
   SNYK-StaticSecurity-Analysis:
       runs-on: ubuntu-latest
-
       steps:
         - uses: actions/checkout@v2
         - name: Run Snyk to check IAC files for issues
@@ -37,7 +36,9 @@ jobs:
           continue-on-error: true
           env:
             SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-
+          with:
+            sarif_file: snyk.sarif
+            args: --report
 
   Build-and-deploy:
     runs-on: ubuntu-latest
