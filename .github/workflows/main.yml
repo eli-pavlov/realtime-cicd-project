@@ -67,7 +67,7 @@ jobs:
           echo "VERSION=$VERSION" >> $GITHUB_ENV  # Set environment variable
           MAJOR_VERSION=$(echo "${VERSION}" | cut -d'.' -f1)
           LAST_MAJOR_VERSION=$((MAJOR_VERSION - 1))
-          docker images ls --format '{{.Repository}}:{{.Tag}}' | grep -v "***/***:$MAJOR_VERSION\.[^.]*" | grep "***/***:$LAST_MAJOR_VERSION" | xargs -I {} docker image rm {}
+          docker images ls --format '{{.Repository}}:{{.Tag}}' | grep -Ev "${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.APP_NAME }}:($MAJOR_VERSION\.[^.]*|latest)" | xargs -I {} docker image rm {}
           
       - name: Build Docker Image
         uses: docker/build-push-action@v3
