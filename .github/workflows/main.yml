@@ -41,7 +41,7 @@ jobs:
 
       - name: Delete Docker Hub images up to last major version
         run: |
-          docker image rm $(docker image ls -q "${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.APP_NAME }}:${{ steps.last_major_version.outputs.LAST_MAJOR_VERSION }}.*")
+         docker image ls --format '{{.Repository}}:{{.Tag}}' | grep '***:'"$LAST_MAJOR_VERSION"'\.' | xargs -I {} docker image rm {}
 
       - name: Build Docker Image
         uses: docker/build-push-action@v3
