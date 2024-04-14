@@ -72,7 +72,7 @@ jobs:
               echo "No version found in commit message. Using 'latest' tag."
               VERSION="latest"
             fi
-            echo "VERSION=$VERSION" >> $GITHUB_ENV  # Set environment variable #
+            echo "VERSION=$VERSION" >> $GITHUB_ENV  # Set environment variable
           
       - name: Build Docker Image
         uses: docker/build-push-action@v3
