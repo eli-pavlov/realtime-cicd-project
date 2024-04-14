@@ -27,7 +27,7 @@ jobs:
             -Dsonar.projectKey=eli-devops-training_rtproject
             -Dsonar.organization=eli-devops-training
 
-  SNYK-Security-Analysis:
+  SNYK-StaticSecurity-Analysis:
       runs-on: ubuntu-latest
 
       steps:
@@ -65,13 +65,12 @@ jobs:
             VERSION="latest"
           fi
           echo "VERSION=$VERSION" >> $GITHUB_ENV  # Set environment variable
-          
+
       - name: Calculate last major version
         run: |
           MAJOR_VERSION=$(echo "${{ env.VERSION }}" | cut -d'.' -f1)
           LAST_MAJOR_VERSION=$((MAJOR_VERSION - 1))
           echo $LAST_MAJOR_VERSION >> $GITHUB_ENV  # Set environment variable
-          echo "::set-output name=LAST_MAJOR_VERSION::$LAST_MAJOR_VERSION"
 
       - name: Delete Docker Hub images up to last major version
         run: |
