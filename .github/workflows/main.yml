@@ -31,6 +31,9 @@ jobs:
             VERSION="latest"
           fi
           echo "VERSION=$VERSION" >> $GITHUB_ENV  # Set environment variable
+          sed -i "s/elipavlov\/rtproject:latest/elipavlov\/rtproject:${{ env.VERSION }}/g" deployment.yaml  # Replace placeholder with version
+          sed -i "s/compliment-generator-[0-9]\+\.[0-9]\+:/compliment-generator-${VERSION}:/g" deployment.yaml
+          echo "Modified deployment.yaml with version: $VERSION"
 
       - name: Build Docker Image
         uses: docker/build-push-action@v3
@@ -49,12 +52,5 @@ jobs:
           script: |
             git pull https://github.com/eli-pavlov/realtime-cicd-project.git
             docker pull ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.APP_NAME }}:${{ env.VERSION }}
-            VERSION=$(git log -1 --pretty=%B | grep -Eo '[0-9]+\.[0-9]+')
-            if [[ -z "$VERSION" ]]; then
-              echo "No version found in commit message. Using 'latest' tag."
-              VERSION="latest"
-            fi
-            sed -i "s/elipavlov\/rtproject:latest/elipavlov\/rtproject:${VERSION}/g" deployment.yaml  # Replace placeholder with version
-            echo "Modified deployment.yaml with version: $VERSION"
             kubectl delete deploy compliment-generator
             kubectl apply -f deployment.yaml

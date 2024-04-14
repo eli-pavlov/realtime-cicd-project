@@ -3,12 +3,12 @@ kind: Service
 metadata:
   name: compliment-generator-service
   labels:
-    app: compliment-generator
+    app: compliment-generator-1.0
   annotations:
     oci.oraclecloud.com/load-balancer-type: "lb"
 spec:
   selector:
-    app: compliment-generator
+    app: compliment-generator-1.0
   ports:
   - port: 80
     targetPort: 5000
@@ -19,9 +19,9 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: compliment-generator
+  name: compliment-generator-1.0
   labels:
-    app: compliment-generator
+    app: compliment-generator-1.0
 spec:
   replicas: 1
   strategy:
@@ -31,14 +31,14 @@ spec:
       maxSurge: 1
   selector:
     matchLabels:
-      app: compliment-generator
+      app: compliment-generator-1.0
   template:
     metadata:
       labels:
-        app: compliment-generator
+        app: compliment-generator-1.0
     spec:
       containers:
-      - name: compliment-generator
+      - name: compliment-generator-1.0
         image: elipavlov/rtproject:latest
         ports:
         - containerPort: 5000
