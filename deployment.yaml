@@ -31,10 +31,15 @@ spec:
     rollingUpdate:
       maxUnavailable: 1
       maxSurge: 1
+      healthProbe:        # Specify readiness probe for health checks
+        tcpSocket:
+          port: 5000  # Check the container port (adjust if needed)
+          initialDelaySeconds: 15  # Wait 15 seconds before starting probe
+          periodSeconds: 20        # Check probe every 20 seconds
+          timeoutSeconds: 5         # Probe timeout after
   selector:
     matchLabels:
       app: compliment-generator
-      version: "latest"
   template:
     metadata:
       labels:
