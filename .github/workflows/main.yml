@@ -84,7 +84,7 @@ jobs:
           script: |
             git pull https://github.com/eli-pavlov/realtime-cicd-project.git
             docker pull ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.APP_NAME }}:latest
-            sed -i "s|elipavlov/rtproject:latest|elipavlov/rtproject:${{ env.VERSION }}|g" ./deployment.yaml
+            # sed -i "s|elipavlov/rtproject:latest|elipavlov/rtproject:${{ env.VERSION }}|g" ./deployment.yaml
             sed -i "s|version: \"latest\"|version: \"${{ env.VERSION }}\"|g" ./deployment.yaml
             echo "Modified deployment.yaml with version: ${{ env.VERSION }}"
             kubectl apply -f deployment.yaml
