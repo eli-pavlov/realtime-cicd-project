@@ -57,4 +57,4 @@ spec:
             memory: "512Mi" # 512 MB memory
           requests:
             cpu: "0.1" # 0.1 CPU cores
-            memory: "128Mi" # 128 MB memory
+            memory: "128Mi" # 128 MB memory #
