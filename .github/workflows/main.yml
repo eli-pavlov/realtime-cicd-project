@@ -2,7 +2,7 @@ name: Deploy revised app to Kubernetes
 
 on:
   push:
-    branches: [ master ]
+    branches: [master]
 
 jobs:
   build-and-deploy:
@@ -31,14 +31,17 @@ jobs:
             VERSION="latest"
           fi
           echo "VERSION=$VERSION" >> $GITHUB_ENV  # Set environment variable
-      
+
       - name: Calculate last major version
+        id: last_major_version
         run: |
           MAJOR_VERSION=$(echo "${{ env.VERSION }}" | cut -d'.' -f1)
           LAST_MAJOR_VERSION=$((MAJOR_VERSION - 1))
           echo "::set-output name=LAST_MAJOR_VERSION::$LAST_MAJOR_VERSION"
-          docker image rm $(docker image ls -q "${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.APP_NAME }}:${LAST_MAJOR_VERSION}.*")
 
+      - name: Delete Docker Hub images up to last major version
+        run: |
+          docker image rm $(docker image ls -q "${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.APP_NAME }}:${{ steps.last_major_version.outputs.LAST_MAJOR_VERSION }}.*")
 
       - name: Build Docker Image
         uses: docker/build-push-action@v3
@@ -62,5 +65,3 @@ jobs:
             echo "Modified deployment.yaml with version: ${{ env.VERSION }}"
             kubectl apply -f deployment.yaml
             git reset --hard HEAD   # Reset working directory to last commit
-
-
