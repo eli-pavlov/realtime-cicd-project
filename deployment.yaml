@@ -4,7 +4,7 @@ metadata:
   name: compliment-generator-service
   labels:
     app: compliment-generator
-    version: latest
+    version: "latest"
   annotations:
     oci.oraclecloud.com/load-balancer-type: "lb"
 spec:
@@ -23,7 +23,7 @@ metadata:
   name: compliment-generator
   labels:
     app: compliment-generator
-    version: latest
+    version: "latest"
 spec:
   replicas: 1
   strategy:
@@ -34,12 +34,12 @@ spec:
   selector:
     matchLabels:
       app: compliment-generator
-      version: latest
+      version: "latest"
   template:
     metadata:
       labels:
         app: compliment-generator
-        version: latest
+        version: "latest"
     spec:
       containers:
       - name: compliment-generator
