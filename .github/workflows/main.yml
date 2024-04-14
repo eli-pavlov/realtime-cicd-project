@@ -65,8 +65,7 @@ jobs:
             VERSION="latest"
           fi
           echo "VERSION=$VERSION" >> $GITHUB_ENV  # Set environment variable
-          cat $VERSION
-
+          
       - name: Calculate last major version
         run: |
           MAJOR_VERSION=$(echo "${{ env.VERSION }}" | cut -d'.' -f1)
