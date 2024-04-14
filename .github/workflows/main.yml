@@ -59,15 +59,16 @@ jobs:
 
       - name: Extract version from commit message and update Deployment
         run: |
+          docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
           VERSION=$(git log -1 --pretty=%B | grep -Eo '[0-9]+\.[0-9]+')  # Capture digits separated by a dot
-          if [[ -z "$VERSION" ]]; then
-            echo "No version found in commit message. Using 'latest' tag."
-            VERSION="latest"
-          fi
-          echo "VERSION=$VERSION" >> $GITHUB_ENV  # Set environment variable
-          MAJOR_VERSION=$(echo "${VERSION}" | cut -d'.' -f1)
-          echo $MAJOR_VERSION
-          docker images ls --format '.Repository}}:{{.Tag}}' | grep -Ev "${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.APP_NAME }}:($MAJOR_VERSION\.[^.]*|latest)" | xargs -I {} docker image rm {}
+            if [[ -z "$VERSION" ]]; then
+              echo "No version found in commit message. Using 'latest' tag."
+              VERSION="latest"
+            fi
+            echo "VERSION=$VERSION" >> $GITHUB_ENV  # Set environment variable
+            MAJOR_VERSION=$(echo "${VERSION}" | cut -d'.' -f1)
+            echo $MAJOR_VERSION
+            docker images ls --format '{{.Repository}}:{{.Tag}}' | grep -Ev "${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.APP_NAME }}:($MAJOR_VERSION\.[^.]*|latest)" | xargs -I {} docker image rm {}
           
       - name: Build Docker Image
         uses: docker/build-push-action@v3
