@@ -53,5 +53,5 @@ jobs:
             sed -i "s|version: \"latest\"|version: \"${{ env.VERSION }}\"|g" ./deployment.yaml
             echo "Modified deployment.yaml with version: ${{ env.VERSION }}"
             kubectl apply -f deployment.yaml
-            git reset --hard HEAD   # Reset working directory to last commit #
+            git reset --hard HEAD   # Reset working directory to last commit
 
