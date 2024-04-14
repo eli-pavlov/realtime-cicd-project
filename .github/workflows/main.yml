@@ -52,6 +52,4 @@ jobs:
             sed -i "s/elipavlov\/rtproject:latest/elipavlov\/rtproject:${{ env.VERSION }}/g" deployment.yaml  # Replace placeholder with version
             sed -i "s/compliment-generator-[0-9]\+\.[0-9]\+:/compliment-generator-${VERSION}:/g" deployment.yaml
             echo "Modified deployment.yaml with version: ${{ env.VERSION }}"
-            kubectl delete deploy compliment-generator-${{ env.VERSION }}
-            kubectl delete service compliment-generator-service
             kubectl apply -f deployment.yaml
