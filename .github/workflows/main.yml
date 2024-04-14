@@ -66,16 +66,13 @@ jobs:
               VERSION="latest"
             fi
             echo "VERSION=$VERSION" >> $GITHUB_ENV  # Set environment variable
-            MAJOR_VERSION=$(echo "${VERSION}" | cut -d'.' -f1)
-            echo $MAJOR_VERSION
-            docker images ls --format '{{.Repository}}:{{.Tag}}' | grep -Ev "${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.APP_NAME }}:($MAJOR_VERSION\.[^.]*|latest)" | xargs -I {} docker image rm {}
           
       - name: Build Docker Image
         uses: docker/build-push-action@v3
         with:
           push: true
           platforms: linux/arm64 
-          tags: "${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.APP_NAME }}:${{ env.VERSION }}"
+          tags: "${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.APP_NAME }}:latest"
 
       - name: Pull and Deploy App
         uses: appleboy/ssh-action@v1.0.3
@@ -86,7 +83,7 @@ jobs:
           port: ${{ secrets.REMOTE_MACHINE_PORT }}
           script: |
             git pull https://github.com/eli-pavlov/realtime-cicd-project.git
-            docker pull ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.APP_NAME }}:${{ env.VERSION }}
+            docker pull ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.APP_NAME }}:latest
             sed -i "s|elipavlov/rtproject:latest|elipavlov/rtproject:${{ env.VERSION }}|g" ./deployment.yaml
             sed -i "s|version: \"latest\"|version: \"${{ env.VERSION }}\"|g" ./deployment.yaml
             echo "Modified deployment.yaml with version: ${{ env.VERSION }}"
