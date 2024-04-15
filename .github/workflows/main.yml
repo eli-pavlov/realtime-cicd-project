@@ -44,7 +44,6 @@ jobs:
             SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
           with:
             args: --report
-            command: monitor
 
   Build-and-deploy:
     runs-on: ubuntu-latest
