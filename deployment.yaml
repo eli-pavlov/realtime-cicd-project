@@ -24,7 +24,7 @@ metadata:
     app: compliment-generator
     version: "latest"
 spec:
-  replicas: 3
+  replicas: 5
   revisionHistoryLimit: 2
   strategy:
     type: RollingUpdate
