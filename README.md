@@ -12,7 +12,7 @@ $~~$
  :notebook_with_decorative_cover: Table of Contents
 
 - [About the Project](#star2-about-the-project)
-- [Work Flow](#rocket-tldr)
+- [Project Diagram](#world_map-project-diagram)
 - [Project Files](#open_file_folder-files)
 - [License](#warning-license)
 - [Contact](#handshake-contact)
@@ -30,50 +30,10 @@ $~~$
 
 $~$
 
-## 🗺️: Project Diagram
+## :🗺️: Project Diagram
 
 <img src= "https://github.com/eli-pavlov/realtime-cicd-project/blob/master/docs/rtproject-diagram.png" width=1080 />
 
-## :rocket: TL;DR
-
-
-- [**1**]- 1
-
-- [**2**]- 2
-```bash
-sudo usermod -aG vboxusers vagrant
-```
-
-- [**3**](https://git-scm.com/downloads)
-
-  
-$~~$
-
-
-1. **1:**
-```bash
-1
-```
-2. **2:**
-```bash
-2
-```
-3. **3:**
-```bash
-3
-```
-4. **4:**
-```bash
-4
-```
-5. **5:**
-```bash
-5
-```
-6. **6:**
-```bash
-6
-```
 
 $~$
 
