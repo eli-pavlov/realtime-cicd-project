@@ -30,7 +30,7 @@ jobs:
           args:
             -Dsonar.projectKey=eli-devops-training_rtproject
             -Dsonar.organization=eli-devops-training
-            -Dsonar.PythonVersion=3.9
+           # -Dsonar.PythonVersion=3.9
 
   SNYK-StaticSecurity-Analysis:
       runs-on: ubuntu-latest
