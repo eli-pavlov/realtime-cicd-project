@@ -1,5 +1,5 @@
 <div align='center'>
-<img src= "https://github.com/eli-pavlov/realtime-cicd-project/blob/master/docs/githubactions.png" width=320 />
+<img src= "https://github.com/eli-pavlov/realtime-cicd-project/blob/master/docs/githubactions2.png" width=320 />
 <h1> Devops CI/CD Project</h1>
  
 <p> Example of a web app depoyment on Kubetnetes using Github Actions and Security & Code quality analysis tools </p>
