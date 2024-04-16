@@ -73,7 +73,7 @@ jobs:
             fi
             echo "VERSION=$VERSION" >> $GITHUB_ENV  # Set environment variable
           
-      - name: Build Docker Image
+      - name: Build and Push Docker Image
         uses: docker/build-push-action@v3
         with:
           push: true

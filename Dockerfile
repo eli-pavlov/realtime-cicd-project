@@ -5,7 +5,7 @@ FROM python:3.9-alpine
 WORKDIR /app
 
 # Copy the Flask app code into the container
-COPY app.py /app/
+COPY src/app.py /app/
 COPY templates /app/templates/
 
 # Install Flask
