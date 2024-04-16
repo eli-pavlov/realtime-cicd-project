@@ -30,7 +30,7 @@ $~~$
 
 $~$
 
-## :🗺️: Project Diagram
+## :world_map: Project Diagram
 
 <img src= "https://github.com/eli-pavlov/realtime-cicd-project/blob/master/docs/rtproject-diagram.png" width=1080 />
 
