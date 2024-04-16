@@ -2,7 +2,7 @@
 <img src= "https://github.com/eli-pavlov/realtime-cicd-project/blob/master/docs/devops_cycle.jpg" width=320 />
 <h1> Devops CI/CD Project</h1>
  
-<p>  An example of an App deployment on Kubetnetes using Github Actions and Security/Code quality analysis tools </p>
+<p> Deployment of a web App on Kubetnetes using Github Actions and Security & Code quality analysis tools </p>
 
 <h4> <span> · </span> <a href="https://github.com/eli-pavlov/kubernetes-vagrant-EZ/blob/master/README.md"> Documentation </a> <span> · </span> <a href="https://github.com/eli-pavlov/helm-wordpress-mariadb/issues"> Report Bug </a> <span> · </span> <a href="https://github.com/eli-pavlov/kubernetes-vagrant-EZ/issues"> Request Feature </a> </h4>
 
