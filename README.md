@@ -30,6 +30,9 @@ $~~$
 
 $~$
 
+## 🗺️: Project Diagram
+
+<img src= "https://github.com/eli-pavlov/realtime-cicd-project/blob/master/docs/rtproject-diagram.png" width=800 />
 
 ## :rocket: TL;DR
 
