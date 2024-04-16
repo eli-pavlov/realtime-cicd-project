@@ -1,5 +1,5 @@
 <div align='center'>
-<img src= "https://github.com/eli-pavlov/realtime-cicd-project/blob/master/docs/rtpr" width=320 />
+<img src= "https://github.com/eli-pavlov/realtime-cicd-project/blob/master/docs/devops_cycle_jpg" width=320 />
 <h1> Devops CI/CD Project</h1>
  
 <p>  An example of an App deployment on Kubetnetes using Github Actions and Security/Code quality analysis tools </p>
@@ -33,6 +33,7 @@ $~$
 ## 🗺️: Project Diagram
 <div align='center'>
 <img src= "https://github.com/eli-pavlov/realtime-cicd-project/blob/master/docs/rtproject-diagram.png" width=1080 />
+</div>
 
 ## :rocket: TL;DR
 
