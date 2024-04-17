@@ -94,4 +94,4 @@ jobs:
             kubectl apply -f deployment.yaml
             git reset --hard HEAD   # Reset working directory to last commit
           # Optional Dockerhub image versioning
-          # sed -i "s|elipavlov/rtproject:latest|elipavlov/rtproject:${{ env.VERSION }}|g" ./deployment.yaml #
+          # sed -i "s|elipavlov/rtproject:latest|elipavlov/rtproject:${{ env.VERSION }}|g" ./deployment.yaml
