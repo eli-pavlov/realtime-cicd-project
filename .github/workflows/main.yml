@@ -51,7 +51,7 @@ jobs:
       - name: setup node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: '20.0'
 
       - name: Set application version
         run: |
@@ -82,7 +82,7 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           push: true
-          platforms: linux/arm64 
+          platforms: linux/arm64
           tags: "${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.APP_NAME }}:latest"
 
       - name: Pull and Deploy App
