@@ -46,10 +46,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        # if: env.VERSION != 'latest'
         uses: actions/checkout@v3
-
-          # docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Set application version
         run: |
@@ -61,18 +58,22 @@ jobs:
             echo "VERSION=$VERSION" >> $GITHUB_ENV  # Set environment variable
 
       - name: Login to Docker Hub
+        if: env.VERSION != 'latest'
         uses: docker/login-action@v3
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Set up QEMU (optional, for multi-arch builds)
+        if: env.VERSION != 'latest'
         uses: docker/setup-qemu-action@v3
 
       - name: Set up Docker Buildx (optional, for multi-arch builds)
+        if: env.VERSION != 'latest'
         uses: docker/setup-buildx-action@v3
           
       - name: Build and Push Docker Image
+        if: env.VERSION != 'latest'
         uses: docker/build-push-action@v3
         with:
           push: true
@@ -80,6 +81,7 @@ jobs:
           tags: "${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.APP_NAME }}:latest"
 
       - name: Pull and Deploy App
+        if: env.VERSION != 'latest'
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.REMOTE_MACHINE_IP }}
