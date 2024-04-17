@@ -75,7 +75,6 @@ A Docker Hub account.<br>
 A SonarCloud account.<br>
 A Snyk account.<br>
 
-$--$
 
 **Secrets configured in your GitHub repository for:**<br>
 (Repository --> Settings--> Secrets and Variables--> Actions--> New repository secret):<br>
