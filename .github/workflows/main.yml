@@ -88,8 +88,7 @@ jobs:
             git pull https://github.com/${{ secrets.GITHUB_USERNAME }}/realtime-cicd-project.git
             docker pull ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.APP_NAME }}:latest
             sed -i "s|version: \"latest\"|version: \"${{ env.VERSION }}\"|g" ./deployment.yaml
+            sed -i "s|image: placeholder|${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.APP_NAME }}:${{ env.VERSION }}|g" ./deployment.yaml
             echo "Modified deployment.yaml with version: ${{ env.VERSION }}"
             kubectl apply -f deployment.yaml
             git reset --hard HEAD   # Reset working directory to last commit
-          # Optional Dockerhub image versioning
-          # sed -i "s|${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.APP_NAME }}:latest|${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.APP_NAME }}:${{ env.VERSION }}|g" ./deployment.yaml
