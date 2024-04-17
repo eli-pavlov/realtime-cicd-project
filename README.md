@@ -35,23 +35,23 @@ Versioning: Extracts the version number from the commit message or defaults to "
 Multi-arch Builds (Optional): Supports building Docker images for multiple architectures using QEMU and Docker Buildx (enabled when a version other than "latest" is deployed).
 Secure Deployment: Requires secrets for Docker Hub login, remote machine access, and application name for secure storage.
 
-**Workflow Breakdown:**
+- **Workflow Breakdown:**
 
-- **SonarCloud-CodeQuality-Analysis:**
+**SonarCloud-CodeQuality-Analysis:**
 
 Runs on Ubuntu runner.
 Checks out the codebase with full history (fetch-depth: 0).
 Analyzes the code using the SonarCloud action, providing required secrets (GITHUB_TOKEN and SONAR_TOKEN) via environment variables.
 Additional arguments for the SonarCloud scanner can be specified in the args section (e.g., -Dsonar.projectName=${{ secrets.SONAR_PROJECT_KEY }}).
 
-- **Snyk Static Application Security Testing**:
+**Snyk Static Application Security Testing**:
 
 Runs on Ubuntu runner.
 Checks out the codebase.
 Uses the Snyk action for IaC file scanning, providing the SNYK_TOKEN secret in the environment.
 Includes the continue-on-error: true option to keep the workflow running even if Snyk finds issues. This allows for potential manual review.
 
-- **Build and deploy app (Requires successful completion of previous jobs):**
+**Build and deploy app (Requires successful completion of previous jobs):**
 
 Runs on Ubuntu runner.
 Checks out the codebase.
@@ -77,17 +77,27 @@ $--$
 **Secrets configured in your GitHub repository for:**
 (Repository --> Settings--> Secrets and Variables--> Actions--> New repository secret):<br>
 
-**APP_NAME:** | The name of the application as used to create the Dockerhub Image<br>
-**DOCKERHUB_TOKEN:** The authentication API token to be used instead of password.<br>
-**DOCKERHUB_USERNAME:** DockerHub Username used for login.<br>
-**REMOTE_MACHINE_IP:** The IP of the remote kubernetes cluster control server.<br>
-**REMOTE_MACHINE_KEY:** The private SSH key of the remote machine. Entered directly as a text into the secret.<br>
-**REMOTE_MACHINE_PORT:** The port used connecting via SSH to the remote machine.<br>
-**REMOTE_MACHINE_USER:** Username used to connecto to remote mahcine.<br>
-**SNYK_TOKEN:** Project token obtained from "snyk.io".<br>
-**SONAR_ORGANIZATION:** Organizaton name obtained from "sonarcloud.io"<br>
-**SONAR_PROJECT_KEY:** Project keyy obtained from "sonarcloud.io"<br>
-**SONAR_TOKEN:** Secret token obtained from "sonarcloud.io"<br>
+**APP_NAME:** | The name of the application as used to create the Dockerhub Image
+
+**DOCKERHUB_TOKEN:** The authentication API token to be used instead of password.
+
+**DOCKERHUB_USERNAME:** DockerHub Username used for login.
+
+**REMOTE_MACHINE_IP:** The IP of the remote kubernetes cluster control server.
+
+**REMOTE_MACHINE_KEY:** The private SSH key of the remote machine. Entered directly as a text into the secret.
+
+**REMOTE_MACHINE_PORT:** The port used connecting via SSH to the remote machine.
+
+**REMOTE_MACHINE_USER:** Username used to connecto to remote mahcine.
+
+**SNYK_TOKEN:** Project token obtained from "snyk.io".
+
+**SONAR_ORGANIZATION:** Organizaton name obtained from "sonarcloud.io".
+
+**SONAR_PROJECT_KEY:** Project keyy obtained from "sonarcloud.io".
+
+**SONAR_TOKEN:** Secret token obtained from "sonarcloud.io".
 $~~$
 
 ## :world_map: Project Diagram
