@@ -73,30 +73,21 @@ A Kubernetes cluster.<br>
 A Docker Hub account.<br>
 A SonarCloud account.<br>
 A Snyk account.<br>
+$--$
 **Secrets configured in your GitHub repository for:**
 (Repository --> Settings--> Secrets and Variables--> Actions--> New repository secret):<br>
 
-**APP_NAME:** | The name of the application as used to create the Dockerhub Image
-
-**DOCKERHUB_TOKEN:** The authentication API token to be used instead of password.
-
-**DOCKERHUB_USERNAME:** DockerHub Username used for login.
-
-**REMOTE_MACHINE_IP:** The IP of the remote kubernetes cluster control server.
-
-**REMOTE_MACHINE_KEY:** The private SSH key of the remote machine. Entered directly as a text into the secret.
-
-**REMOTE_MACHINE_PORT:** The port used connecting via SSH to the remote machine.
-
-**REMOTE_MACHINE_USER:** Username used to connecto to remote mahcine.
-
-**SNYK_TOKEN:** Project token obtained from "snyk.io".
-
-**SONAR_ORGANIZATION:** Organizaton name obtained from "sonarcloud.io"
-
-**SONAR_PROJECT_KEY:** Project keyy obtained from "sonarcloud.io"
-
-**SONAR_TOKEN:** Secret token obtained from "sonarcloud.io"
+**APP_NAME:** | The name of the application as used to create the Dockerhub Image<br>
+**DOCKERHUB_TOKEN:** The authentication API token to be used instead of password.<br>
+**DOCKERHUB_USERNAME:** DockerHub Username used for login.<br>
+**REMOTE_MACHINE_IP:** The IP of the remote kubernetes cluster control server.<br>
+**REMOTE_MACHINE_KEY:** The private SSH key of the remote machine. Entered directly as a text into the secret.<br>
+**REMOTE_MACHINE_PORT:** The port used connecting via SSH to the remote machine.<br>
+**REMOTE_MACHINE_USER:** Username used to connecto to remote mahcine.<br>
+**SNYK_TOKEN:** Project token obtained from "snyk.io".<br>
+**SONAR_ORGANIZATION:** Organizaton name obtained from "sonarcloud.io"<br>
+**SONAR_PROJECT_KEY:** Project keyy obtained from "sonarcloud.io"<br>
+**SONAR_TOKEN:** Secret token obtained from "sonarcloud.io"<br>
 $~~$
 
 ## :world_map: Project Diagram
