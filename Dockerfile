@@ -1,27 +1,18 @@
-# Stage 1: Build dependencies (slim image)
-FROM python:3.9-slim AS builder
+# Use an official Python runtime as a parent image
+FROM python:3.9-alpine
 
-# Set working directory
+# Set the working directory in the container
 WORKDIR /app
+
+# Copy the Flask app code into the container
+COPY ./src/app.py /app/app.py
+COPY ./templates/index.html /app/templates/index.html
 
 # Install Flask
 RUN pip install --no-cache-dir Flask
 
-# Stage 2: Copy application code (smaller image)
-FROM python:3.9-alpine
-
-# Set working directory
-WORKDIR /app
-
-# Create the templates directory
-RUN mkdir /app/templates
-
-# Copy application code and templates
-COPY src/ .  # Copies entire directory structure
-COPY templates/ .  # Copies entire templates directory
-
 # Expose the Flask port
 EXPOSE 5000
 
-# Define command to run the app
+# Define the command to run the Flask app when the container starts #
 CMD ["python", "app.py"]
