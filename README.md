@@ -68,13 +68,13 @@ Applies the modified deployment.yaml to the Kubernetes cluster using kubectl.
 Resets the working directory to the last commit using git reset --hard HEAD to ensure a clean state after deployment.
 Requirements:
 
-A GitHub repository with your codebase.
-A Kubernetes cluster.
-A Docker Hub account.
-A SonarCloud account.
-A Snyk account.
+A GitHub repository with your codebase.<br\>
+A Kubernetes cluster.<br\>
+A Docker Hub account.<br\>
+A SonarCloud account.<br\>
+A Snyk account.<br\>
 **Secrets configured in your GitHub repository for:**
-(Repository --> Settings--> Secrets and Variables--> Actions--> New repository secret):
+(Repository --> Settings--> Secrets and Variables--> Actions--> New repository secret):<br\>
 
 $~$
 
