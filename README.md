@@ -26,7 +26,7 @@ $~~$
 
 This workflow automates the deployment process for a web application to a Kubernetes cluster. It integrates static code analysis, security checks, and versioning to ensure code quality and secure deployments.
 
-Features:
+**Features:**
 
 Automated Deployments: On push to the master branch or pull request merge, the workflow triggers a deployment process.
 Code quality Analysis: Leverages SonarCloud to analyze the codebase for potential issues and maintain code quality.
