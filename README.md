@@ -30,15 +30,56 @@ $~$
 
 ## :star2: About the Project
 
- work in progress...
+This workflow automates the deployment process for a web application to a Kubernetes cluster. It integrates static code analysis, security checks, and versioning to ensure code quality and secure deployments.
 
- 
- $~~$
+Features:
 
+Automated Deployments: On push to the master branch or pull request merge, the workflow triggers a deployment process.
+Code quality Analysis: Leverages SonarCloud to analyze the codebase for potential issues and maintain code quality.
+Static Security Checks: Uses Snyk to scan infrastructure as code (IaC) files for vulnerabilities, enhancing overall security posture.
+Versioning: Extracts the version number from the commit message or defaults to "latest" for deployments.
+Multi-arch Builds (Optional): Supports building Docker images for multiple architectures using QEMU and Docker Buildx (enabled when a version other than "latest" is deployed).
+Secure Deployment: Requires secrets for Docker Hub login, remote machine access, and application name for secure storage.
 
+**Workflow Breakdown:**
 
-**Variables that have to be defined in Github:**
+- **SonarCloud-CodeQuality-Analysis:**
 
+Runs on Ubuntu runner.
+Checks out the codebase with full history (fetch-depth: 0).
+Analyzes the code using the SonarCloud action, providing required secrets (GITHUB_TOKEN and SONAR_TOKEN) via environment variables.
+Additional arguments for the SonarCloud scanner can be specified in the args section (e.g., -Dsonar.projectName=${{ secrets.SONAR_PROJECT_KEY }}).
+
+- **Snyk Static Application Security Testing**:
+
+Runs on Ubuntu runner.
+Checks out the codebase.
+Uses the Snyk action for IaC file scanning, providing the SNYK_TOKEN secret in the environment.
+Includes the continue-on-error: true option to keep the workflow running even if Snyk finds issues. This allows for potential manual review.
+
+- **Build and deploy app (Requires successful completion of previous jobs):**
+
+Runs on Ubuntu runner.
+Checks out the codebase.
+Sets up Node.js version 20.0.
+Extracts the version number from the commit message using regular expressions or defaults to "latest" if not found.
+Sets the version as an environment variable ($VERSION).
+Logs in to Docker Hub (only for non-"latest" deployments) using the docker/login-action and provides Docker Hub username and token secrets.
+Sets up QEMU for multi-arch builds (optional, only for non-"latest" deployments).
+Sets up Docker Buildx for multi-arch builds (optional, only for non-"latest" deployments).
+Builds and pushes the Docker image (only for non-"latest" deployments) using the docker/build-push-action. Supports specific platforms and tags (e.g., linux/arm64, "${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.APP_NAME }}:latest").
+Pulls the latest Docker image and deploys the application to the Kubernetes cluster (only for non-"latest" deployments) using the appleboy/ssh-action. Requires secrets for remote machine IP, username, key, and port.
+Updates the deployment.yaml file with the extracted version and the Docker image reference.
+Applies the modified deployment.yaml to the Kubernetes cluster using kubectl.
+Resets the working directory to the last commit using git reset --hard HEAD to ensure a clean state after deployment.
+Requirements:
+
+A GitHub repository with your codebase.
+A Kubernetes cluster.
+A Docker Hub account.
+A SonarCloud account.
+A Snyk account.
+**Secrets configured in your GitHub repository for:**
 (Repository --> Settings--> Secrets and Variables--> Actions--> New repository secret):
 
 $~$
