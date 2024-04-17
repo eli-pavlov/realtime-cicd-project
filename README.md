@@ -117,12 +117,19 @@ $~$
 ## :open_file_folder: Files
 
 - **./github/workflows/main.yml:**   Main GitHub Actions playbook file.
+
 - **src/app.py:**   Flask Python App file.
+ 
 - **templates/index.html:**   index.html template.
+ 
 - **Dockerfile**   Docker image build manifest file.
+ 
 - **deployment.yaml**   Kubernetes deployment manifest.
+ 
 - **/docs:**   Directory containing media files.
+ 
 - **LICENSE.txt:**   License file.
+ 
 - **README.md:**   Readme file formatted for Github, with information about the chart.
 
 
