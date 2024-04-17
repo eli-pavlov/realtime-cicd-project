@@ -35,8 +35,8 @@ Versioning: Extracts the version number from the commit message or defaults to "
 Multi-arch Builds (Optional): Supports building Docker images for multiple architectures using QEMU and Docker Buildx (enabled when a version other than "latest" is deployed).
 Secure Deployment: Requires secrets for Docker Hub login, remote machine access, and application name for secure storage.
 
-- **Workflow Breakdown:**
-
+**Workflow Breakdown:**
+--
 **SonarCloud-CodeQuality-Analysis:**
 
 Runs on Ubuntu runner.
