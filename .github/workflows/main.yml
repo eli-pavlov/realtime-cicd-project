@@ -94,7 +94,7 @@ jobs:
           key: ${{ secrets.REMOTE_MACHINE_KEY }}
           port: ${{ secrets.REMOTE_MACHINE_PORT }}
           script: |
-            git pull https://github.com/${{ secrets.GITHUB_USERNAME }}/realtime-cicd-project.git
+            git pull https://github.com/${{ secrets.GIT_USERNAME }}/github-actions-cicd-project.git
             docker pull ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.APP_NAME }}:latest
             sed -i "s|version: \"latest\"|version: \"${{ env.VERSION }}\"|g" ./deployment.yaml
             sed -i "s|image: defined_by_variable|${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.APP_NAME }}:${{ env.VERSION }}|g" ./deployment.yaml
