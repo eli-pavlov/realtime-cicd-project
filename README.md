@@ -37,7 +37,7 @@ $~$
 
 
 
-Variables that have to be defined in Github:
+**Variables that have to be defined in Github:**
 
 (Repository --> Settings--> Secrets and Variables--> Actions--> New repository secret)
 
