@@ -9,6 +9,13 @@
 $~~$
 </div>
 
+## :world_map: Project Diagram
+
+<img src= "https://github.com/eli-pavlov/realtime-cicd-project/blob/master/docs/rtproject-diagram.png" width=1080 />
+
+
+$~$
+
  :notebook_with_decorative_cover: Table of Contents
  
 - [About the Project](#star2-about-the-project)
@@ -103,12 +110,6 @@ $---------------------------------------$
 **SONAR_TOKEN:** Secret token obtained from "sonarcloud.io".
 $~~$
 
-## :world_map: Project Diagram
-
-<img src= "https://github.com/eli-pavlov/realtime-cicd-project/blob/master/docs/rtproject-diagram.png" width=1080 />
-
-
-$~$
 
 $~$
 
@@ -122,9 +123,9 @@ $~$
  
 - **templates/index.html:**   index.html template.
  
-- **Dockerfile**   Docker image build manifest file.
+- **Dockerfile:**   Docker image build manifest file.
  
-- **deployment.yaml**   Kubernetes deployment manifest.
+- **deployment.yaml:**   Kubernetes deployment manifest.
  
 - **/docs:**   Directory containing media files.
  
