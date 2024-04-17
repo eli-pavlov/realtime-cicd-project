@@ -31,7 +31,7 @@ $~~$
 
 ## :star2: About the Project
 
-This workflow automates the deployment process for a web application to a Kubernetes cluster. It integrates static code analysis, security checks, and versioning to ensure code quality and secure deployments.
+This workflow automates the deployment process for a web application to a Kubernetes cluster. It integrates code quality analysis, static security checks, and versioning to ensure code quality and secure deployments.
 
 **Features:**
 
