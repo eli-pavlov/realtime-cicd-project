@@ -73,7 +73,7 @@ $~$
 ## :open_file_folder: Files
 
 - **./github/workflows/main.yml:**   GitHub Actions playbook file.
-- **src/app.py:**   Flask Python App file - "<<Compliment generator>>".
+- **src/app.py:**   Flask Python App file.
 - **templates/index.html:**   index.html template.
 - **Dockerfile**   Docker image build manifest file.
 - **deployment.yaml**   Kubernetes deployment manifest.
