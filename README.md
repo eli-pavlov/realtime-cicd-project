@@ -78,6 +78,7 @@ A Snyk account.<br>
 
 **Secrets configured in your GitHub repository for:**<br>
 (Repository --> Settings--> Secrets and Variables--> Actions--> New repository secret):<br>
+$--------------------------------------------------------------------------------------$
 
 **APP_NAME:** | The name of the application as used to create the Dockerhub Image
 
