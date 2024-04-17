@@ -39,10 +39,8 @@ $~$
 
 **Variables that have to be defined in Github:**
 
-(<u style="text-decoration: underline;">Repository --> Settings--> Secrets and Variables--> Actions--> New repository secret</u>)
-
+(Repository --> Settings--> Secrets and Variables--> Actions--> New repository secret):
 $~$
-
 **APP_NAME:** The name of the application as used to create the Dockerhub Image
 
 **DOCKERHUB_TOKEN:** The authentication API token to be used instead of password.
