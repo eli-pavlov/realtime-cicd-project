@@ -43,7 +43,7 @@ $~$
 
 $~$
 
-**APP_NAME:** The name of the application as used to create the Dockerhub Image
+**APP_NAME:** | The name of the application as used to create the Dockerhub Image
 
 **DOCKERHUB_TOKEN:** The authentication API token to be used instead of password.
 
