@@ -18,8 +18,8 @@ $~$
 
  :notebook_with_decorative_cover: Table of Contents
  
+ - [Project Diagram](#world_map-project-diagram)
 - [About the Project](#star2-about-the-project)
-- [Project Diagram](#world_map-project-diagram)
 - [Project Files](#open_file_folder-files)
 - [License](#warning-license)
 - [Contact](#handshake-contact)
