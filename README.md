@@ -41,32 +41,30 @@ $~~$
 --
 **SonarCloud-CodeQuality-Analysis:**
 
-Runs on Ubuntu runner.
-Checks out the codebase with full history (fetch-depth: 0).
-Analyzes the code using the SonarCloud action, providing required secrets (GITHUB_TOKEN and SONAR_TOKEN) via environment variables.
-Additional arguments for the SonarCloud scanner can be specified in the args section (e.g., -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }}).
+Checks out the codebase with full history (fetch-depth: 0).<br>
+Analyzes the code using the SonarCloud action, providing required secrets (GITHUB_TOKEN and SONAR_TOKEN) via environment variables.<br>
+Additional arguments for the SonarCloud scanner can be specified in the args section (e.g., -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }}).<br>
 
 **Snyk Static Application Security Testing**:
 
-Runs on Ubuntu runner.
-Checks out the codebase.
-Uses the Snyk action for IaC file scanning, providing the SNYK_TOKEN secret in the environment.
-Includes the continue-on-error: true option to keep the workflow running even if Snyk finds issues. This allows for manual review.
+Checks out the codebase.<br>
+Uses the Snyk action for IaC file scanning, providing the SNYK_TOKEN secret in the environment.<br>
+Includes the continue-on-error: true option to keep the workflow running even if Snyk finds issues. This allows for manual review.<br>
 
 **Build and deploy app (Requires successful completion of previous jobs):**
 
-Runs on Ubuntu runner.
-Checks out the codebase.
-Sets up Node.js version 20.0.
-Extracts the version number from the commit message using regular expressions or defaults to "latest" if not found.
-Sets the version as an environment variable ($VERSION).
-Logs in to Docker Hub (only for non-"latest" deployments) using the docker/login-action and provides Docker Hub username and token secrets.
-Sets up QEMU for multi-arch builds (optional, only for non-"latest" deployments).
-Sets up Docker Buildx for multi-arch builds (optional, only for non-"latest" deployments).
-Builds and pushes the Docker image (only for non-"latest" deployments) using the docker/build-push-action. Supports specific platforms and tags (e.g., linux/arm64).
-Pulls the latest Docker image and deploys the application to the Kubernetes cluster (only for non-"latest" deployments) using the appleboy/ssh-action. Requires secrets for remote machine IP, username, key, and port.
-Updates the deployment.yaml file with the extracted version and the Docker image reference.
-Applies the modified deployment.yaml to the Kubernetes cluster using kubectl.
+Runs on Ubuntu runner.<br>
+Checks out the codebase.<br>
+Sets up Node.js version 20.0.<br>
+Extracts the version number from the commit message using regular expressions or defaults to "latest" if not found.<br>
+Sets the version as an environment variable ($VERSION).<br>
+Logs in to Docker Hub (only for non-"latest" deployments) using the docker/login-action and provides Docker Hub username and token secrets.<br>
+Sets up QEMU for multi-arch builds (optional, only for non-"latest" deployments).<br>
+Sets up Docker Buildx for multi-arch builds (optional, only for non-"latest" deployments).<br>
+Builds and pushes the Docker image (only for non-"latest" deployments) using the docker/build-push-action. Supports specific platforms and tags (e.g., linux/arm64).<br>
+Pulls the latest Docker image and deploys the application to the Kubernetes cluster (only for non-"latest" deployments) using the appleboy/ssh-action. Requires secrets for remote machine IP, username, key, and port.<br>
+Updates the deployment.yaml file with the extracted version and the Docker image reference.<br>
+Applies the modified deployment.yaml to the Kubernetes cluster using kubectl.<br>
 Resets the working directory to the last commit using git reset --hard HEAD to ensure a clean state after deployment.<br>
 
 **Requirements:**
