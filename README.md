@@ -34,7 +34,7 @@ $~$
 
 Variables that have to be defined in Github:
 (Repository --> Settings--> Secrets and Variables--> Actions--> New repository secret)
-##
+
 APP_NAME
 
 DOCKERHUB_TOKEN

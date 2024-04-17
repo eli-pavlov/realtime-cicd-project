@@ -75,7 +75,7 @@ jobs:
           
       - name: Build and Push Docker Image
         if: env.VERSION != 'latest'
-        uses: docker/build-push-action@v3
+        uses: docker/build-push-action@v4
         with:
           push: true
           platforms: linux/arm64 
