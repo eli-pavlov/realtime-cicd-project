@@ -56,7 +56,6 @@ jobs:
             VERSION="latest"
           fi
           echo "VERSION=$VERSION" >> $GITHUB_ENV  # Set environment variable
-        # continue-on-error: true
 
       - name: Login to Docker Hub
         if: env.VERSION != 'latest'
