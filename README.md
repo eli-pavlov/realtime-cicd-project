@@ -11,8 +11,8 @@ $~~$
 
  :notebook_with_decorative_cover: Table of Contents
  
-- [Project Diagram](#world_map-project-diagram)
 - [About the Project](#star2-about-the-project)
+- [Project Diagram](#world_map-project-diagram)
 - [Project Files](#open_file_folder-files)
 - [License](#warning-license)
 - [Contact](#handshake-contact)
@@ -21,12 +21,6 @@ $~~$
 
 $~~$
 
-## :world_map: Project Diagram
-
-<img src= "https://github.com/eli-pavlov/realtime-cicd-project/blob/master/docs/rtproject-diagram.png" width=1080 />
-
-
-$~$
 
 ## :star2: About the Project
 
@@ -106,6 +100,13 @@ $~$
 
 **SONAR_TOKEN:** Secret token obtained from "sonarcloud.io"
 $~~$
+
+## :world_map: Project Diagram
+
+<img src= "https://github.com/eli-pavlov/realtime-cicd-project/blob/master/docs/rtproject-diagram.png" width=1080 />
+
+
+$~$
 
 $~$
 
