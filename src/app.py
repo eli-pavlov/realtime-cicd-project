@@ -22,7 +22,7 @@ compliments = [
 #     "Your monitoring and alerting setups are impressive!",
 #     "You make complex deployments look easy!",
 #     "Your DevOps practices are driving innovation and efficiency!",
-# ]
+# ]#
 
 @app.route('/')
 def index():
