@@ -10,9 +10,9 @@ $~~$
 </div>
 
  :notebook_with_decorative_cover: Table of Contents
-
-- [About the Project](#star2-about-the-project)
+ 
 - [Project Diagram](#world_map-project-diagram)
+- [About the Project](#star2-about-the-project)
 - [Project Files](#open_file_folder-files)
 - [License](#warning-license)
 - [Contact](#handshake-contact)
@@ -37,25 +37,25 @@ Variables that have to be defined in Github:
 
 APP_NAME
 
-DOCKERHUB_TOKEN
+DOCKERHUB_TOKEN => The authentication API token to be used instead of password.
 
-DOCKERHUB_USERNAME
+DOCKERHUB_USERNAME => DockerHub Username used for login.
 
-REMOTE_MACHINE_IP
+REMOTE_MACHINE_IP => The IP of the remote kubernetes cluster control server.
 
-REMOTE_MACHINE_KEY
+REMOTE_MACHINE_KEY => The private SSH key of the remote machine. Entered directly as a text into the secret.
 
-REMOTE_MACHINE_PORT
+REMOTE_MACHINE_PORT => The port used connecting via SSH to the remote machine.
 
-REMOTE_MACHINE_USER
+REMOTE_MACHINE_USER => Username used to connecto to remote mahcine.
 
-SNYK_TOKEN
+SNYK_TOKEN => Project token obtained from "snyk.io".
 
-SONAR_ORGANIZATION
+SONAR_ORGANIZATION => Organizaton name obtained from "sonarcloud.io"
 
-SONAR_PROJECT_KEY
+SONAR_PROJECT_KEY => Project keyy obtained from "sonarcloud.io"
 
-SONAR_TOKEN
+SONAR_TOKEN => Secret token obtained from "sonarcloud.io"
 $~~$
 
 $~$
