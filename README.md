@@ -42,14 +42,14 @@ Secure Deployment: Requires secrets for Docker Hub login, remote machine access,
 Runs on Ubuntu runner.
 Checks out the codebase with full history (fetch-depth: 0).
 Analyzes the code using the SonarCloud action, providing required secrets (GITHUB_TOKEN and SONAR_TOKEN) via environment variables.
-Additional arguments for the SonarCloud scanner can be specified in the args section (e.g., -Dsonar.projectName=${{ secrets.SONAR_PROJECT_KEY }}).
+Additional arguments for the SonarCloud scanner can be specified in the args section (e.g., -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }}).
 
 **Snyk Static Application Security Testing**:
 
 Runs on Ubuntu runner.
 Checks out the codebase.
 Uses the Snyk action for IaC file scanning, providing the SNYK_TOKEN secret in the environment.
-Includes the continue-on-error: true option to keep the workflow running even if Snyk finds issues. This allows for potential manual review.
+Includes the continue-on-error: true option to keep the workflow running even if Snyk finds issues. This allows for manual review.
 
 **Build and deploy app (Requires successful completion of previous jobs):**
 
@@ -61,11 +61,12 @@ Sets the version as an environment variable ($VERSION).
 Logs in to Docker Hub (only for non-"latest" deployments) using the docker/login-action and provides Docker Hub username and token secrets.
 Sets up QEMU for multi-arch builds (optional, only for non-"latest" deployments).
 Sets up Docker Buildx for multi-arch builds (optional, only for non-"latest" deployments).
-Builds and pushes the Docker image (only for non-"latest" deployments) using the docker/build-push-action. Supports specific platforms and tags (e.g., linux/arm64, "${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.APP_NAME }}:latest").
+Builds and pushes the Docker image (only for non-"latest" deployments) using the docker/build-push-action. Supports specific platforms and tags (e.g., linux/arm64).
 Pulls the latest Docker image and deploys the application to the Kubernetes cluster (only for non-"latest" deployments) using the appleboy/ssh-action. Requires secrets for remote machine IP, username, key, and port.
 Updates the deployment.yaml file with the extracted version and the Docker image reference.
 Applies the modified deployment.yaml to the Kubernetes cluster using kubectl.
 Resets the working directory to the last commit using git reset --hard HEAD to ensure a clean state after deployment.<br>
+
 **Requirements:**
 
 A GitHub repository with your codebase.<br>
@@ -73,8 +74,10 @@ A Kubernetes cluster.<br>
 A Docker Hub account.<br>
 A SonarCloud account.<br>
 A Snyk account.<br>
+
 $--$
-**Secrets configured in your GitHub repository for:**
+
+**Secrets configured in your GitHub repository for:**<br>
 (Repository --> Settings--> Secrets and Variables--> Actions--> New repository secret):<br>
 
 **APP_NAME:** | The name of the application as used to create the Dockerhub Image
