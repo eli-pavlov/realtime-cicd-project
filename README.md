@@ -30,7 +30,8 @@ $~$
 
 ## :star2: About the Project
 
- work in progress
+ work in progress...
+ $~$
 
 Variables that have to be defined in Github:
 (Repository --> Settings--> Secrets and Variables--> Actions--> New repository secret)
