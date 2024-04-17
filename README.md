@@ -39,8 +39,10 @@ $~$
 
 Variables that have to be defined in Github:
 
-
 (Repository --> Settings--> Secrets and Variables--> Actions--> New repository secret)
+
+
+$~~$
 
 **APP_NAME:** The name of the application as used to create the Dockerhub Image
 
