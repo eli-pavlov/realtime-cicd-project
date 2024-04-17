@@ -35,27 +35,27 @@ $~$
 Variables that have to be defined in Github:
 (Repository --> Settings--> Secrets and Variables--> Actions--> New repository secret)
 
-APP_NAME
+- **APP_NAME:** The name of the application as used to create the Dockerhub Image
 
-DOCKERHUB_TOKEN => The authentication API token to be used instead of password.
+- **DOCKERHUB_TOKEN:** The authentication API token to be used instead of password.
 
-DOCKERHUB_USERNAME => DockerHub Username used for login.
+- **DOCKERHUB_USERNAME:** DockerHub Username used for login.
 
-REMOTE_MACHINE_IP => The IP of the remote kubernetes cluster control server.
+- **REMOTE_MACHINE_IP:** The IP of the remote kubernetes cluster control server.
 
-REMOTE_MACHINE_KEY => The private SSH key of the remote machine. Entered directly as a text into the secret.
+- **REMOTE_MACHINE_KEY:** The private SSH key of the remote machine. Entered directly as a text into the secret.
 
-REMOTE_MACHINE_PORT => The port used connecting via SSH to the remote machine.
+- **REMOTE_MACHINE_PORT:** The port used connecting via SSH to the remote machine.
 
-REMOTE_MACHINE_USER => Username used to connecto to remote mahcine.
+- **REMOTE_MACHINE_USER:** Username used to connecto to remote mahcine.
 
-SNYK_TOKEN => Project token obtained from "snyk.io".
+- **SNYK_TOKEN:** Project token obtained from "snyk.io".
 
-SONAR_ORGANIZATION => Organizaton name obtained from "sonarcloud.io"
+- **SONAR_ORGANIZATION:** Organizaton name obtained from "sonarcloud.io"
 
-SONAR_PROJECT_KEY => Project keyy obtained from "sonarcloud.io"
+- **SONAR_PROJECT_KEY:** Project keyy obtained from "sonarcloud.io"
 
-SONAR_TOKEN => Secret token obtained from "sonarcloud.io"
+- **SONAR_TOKEN:** Secret token obtained from "sonarcloud.io"
 $~~$
 
 $~$
