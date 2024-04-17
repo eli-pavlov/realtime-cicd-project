@@ -1,6 +1,6 @@
 <div align='center'>
 <img src= "https://github.com/eli-pavlov/realtime-cicd-project/blob/master/docs/githubactions2.png" width=320 />
-<h1> GitHub Actions CI/CD Project</h1>
+<h1> "GitHub Actions" CI/CD Project</h1>
  
 <p> Web app deployment on Kubernetes using Github Actions together with Security & Code quality analysis tools. </p>
 
