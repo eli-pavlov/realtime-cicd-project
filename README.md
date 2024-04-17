@@ -40,7 +40,6 @@ $~$
 **Variables that have to be defined in Github:**
 
 (<u style="text-decoration: underline;">Repository --> Settings--> Secrets and Variables--> Actions--> New repository secret</u>)
---
 
 $~~$
 
