@@ -26,12 +26,13 @@ $~~$
 
  work in progress
 
-Variables needed to be defined in Github for the Pipeline:
+Variables that have to be defined in Github:
 (Repository --> Settings--> Secrets and Variables--> Actions--> New repository secret)
---------------------------------------------------------------------------------------
-APP_NAME
 
+APP_NAME
+$~$
 DOCKERHUB_TOKEN
+$~$
 DOCKERHUB_USERNAME
 REMOTE_MACHINE_IP
 REMOTE_MACHINE_KEY
