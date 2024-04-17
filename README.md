@@ -39,7 +39,8 @@ $~$
 
 **Variables that have to be defined in Github:**
 
-(Repository --> Settings--> Secrets and Variables--> Actions--> New repository secret)
+(<u style="text-decoration: underline;">Repository --> Settings--> Secrets and Variables--> Actions--> New repository secret</u>)
+(<u style="text-decoration: underline;">underlined text</u>)
 
 
 $~~$
