@@ -72,7 +72,7 @@ $~$
 
 ## :open_file_folder: Files
 
-- **./github/workflows/main.yml:**   GitHub Actions playbook file.
+- **./github/workflows/main.yml:**   Main GitHub Actions playbook file.
 - **src/app.py:**   Flask Python App file.
 - **templates/index.html:**   index.html template.
 - **Dockerfile**   Docker image build manifest file.
