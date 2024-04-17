@@ -33,7 +33,7 @@ jobs:
   SNYK-StaticSecurity-Analysis:
       runs-on: ubuntu-latest
       steps:
-        - uses: actions/checkout@v3
+        - uses: actions/checkout@v4
         - name: Run Snyk to check IAC files for issues
           uses: snyk/actions/iac@master
           continue-on-error: true
@@ -47,7 +47,7 @@ jobs:
     needs: [SonarCloud-CodeQuality-Analysis, SNYK-StaticSecurity-Analysis]
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set application version
         run: |
