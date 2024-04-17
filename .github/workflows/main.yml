@@ -21,16 +21,14 @@ jobs:
       - name: Analyze with SonarCloud
         uses: SonarSource/sonarcloud-github-action@master
         env:
-          AWS_API_KEY: "dwndoo23423492y349283409827348"
-          AWS_SECRET_KEY: "dmohr9318y49q3h9u3092y0932h9f3"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}   # Generate a token on Sonarcloud.io, add it to the secrets of this repo with the name SONAR_TOKEN (Settings > Secrets > Actions > add new repository secret)
         with:
           # Additional arguments for the sonarcloud scanner
           args:
-            -Dsonar.projectKey=eli-devops-training_rtproject
-            -Dsonar.organization=eli-devops-training
-           # -Dsonar.PythonVersion=3.9
+            -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }}
+            -Dsonar.organization=${{ secrets.SONAR_ORGANIZATION }}
+            -Dsonar.PythonVersion=3.9
 
   SNYK-StaticSecurity-Analysis:
       runs-on: ubuntu-latest
@@ -87,11 +85,11 @@ jobs:
           key: ${{ secrets.REMOTE_MACHINE_KEY }}
           port: ${{ secrets.REMOTE_MACHINE_PORT }}
           script: |
-            git pull https://github.com/eli-pavlov/realtime-cicd-project.git
+            git pull https://github.com/${{ secrets.GITHUB_USERNAME }}/realtime-cicd-project.git
             docker pull ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.APP_NAME }}:latest
             sed -i "s|version: \"latest\"|version: \"${{ env.VERSION }}\"|g" ./deployment.yaml
             echo "Modified deployment.yaml with version: ${{ env.VERSION }}"
             kubectl apply -f deployment.yaml
             git reset --hard HEAD   # Reset working directory to last commit
           # Optional Dockerhub image versioning
-          # sed -i "s|elipavlov/rtproject:latest|elipavlov/rtproject:${{ env.VERSION }}|g" ./deployment.yaml
+          # sed -i "s|${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.APP_NAME }}:latest|${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.APP_NAME }}:${{ env.VERSION }}|g" ./deployment.yaml
