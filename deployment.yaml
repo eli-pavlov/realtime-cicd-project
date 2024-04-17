@@ -42,7 +42,7 @@ spec:
     spec:
       containers:
       - name: compliment-generator
-        image: defined_by_variable
+        image: "defined_by_variable"
         ports:
         - containerPort: 5000
         resources:
