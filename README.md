@@ -28,12 +28,12 @@ This workflow automates the deployment process for a web application to a Kubern
 
 **Features:**
 
-Automated Deployments: On push to the master branch or pull request merge, the workflow triggers a deployment process.<br>
-Code quality Analysis: Leverages SonarCloud to analyze the codebase for potential issues and maintain code quality.<br>
-Static Security Checks: Uses Snyk to scan infrastructure as code (IaC) files for vulnerabilities, enhancing overall security posture.<br>
-Versioning: Extracts the version number from the commit message or defaults to "latest" for deployments.<br>
-Multi-arch Builds (Optional): Supports building Docker images for multiple architectures using QEMU and Docker Buildx (enabled when a version other than "latest" is deployed).<br>
-Secure Deployment: Requires secrets for Docker Hub login, remote machine access, and application name for secure storage.<br>
+- Automated Deployments: On push to the master branch or pull request merge, the workflow triggers a deployment process.<br>
+- Code quality Analysis: Leverages SonarCloud to analyze the codebase for potential issues and maintain code quality.<br>
+- Static Security Checks: Uses Snyk to scan infrastructure as code (IaC) files for vulnerabilities, enhancing overall security posture.<br>
+- Versioning: Extracts the version number from the commit message or defaults to "latest" for deployments.<br>
+- Multi-arch Builds (Optional): Supports building Docker images for multiple architectures using QEMU and Docker Buildx (enabled when a version other than "latest" is deployed).<br>
+- Secure Deployment: Requires secrets for Docker Hub login, remote machine access, and application name for secure storage.<br>
 
 $~~$
 
