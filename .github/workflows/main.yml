@@ -33,7 +33,7 @@ jobs:
   SNYK-StaticSecurity-Analysis:
       runs-on: ubuntu-latest
       steps:
-        - uses: actions/checkout@v2
+        - uses: actions/checkout@v3
         - name: Run Snyk to check IAC files for issues
           uses: snyk/actions/iac@master
           continue-on-error: true
