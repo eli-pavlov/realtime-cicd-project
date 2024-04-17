@@ -65,8 +65,8 @@ Builds and pushes the Docker image (only for non-"latest" deployments) using the
 Pulls the latest Docker image and deploys the application to the Kubernetes cluster (only for non-"latest" deployments) using the appleboy/ssh-action. Requires secrets for remote machine IP, username, key, and port.
 Updates the deployment.yaml file with the extracted version and the Docker image reference.
 Applies the modified deployment.yaml to the Kubernetes cluster using kubectl.
-Resets the working directory to the last commit using git reset --hard HEAD to ensure a clean state after deployment.
-Requirements:
+Resets the working directory to the last commit using git reset --hard HEAD to ensure a clean state after deployment.<br>
+**Requirements:**
 
 A GitHub repository with your codebase.<br>
 A Kubernetes cluster.<br>
@@ -74,9 +74,7 @@ A Docker Hub account.<br>
 A SonarCloud account.<br>
 A Snyk account.<br>
 **Secrets configured in your GitHub repository for:**
-(Repository --> Settings--> Secrets and Variables--> Actions--> New repository secret):<br\>
-
-$~$
+(Repository --> Settings--> Secrets and Variables--> Actions--> New repository secret):<br>
 
 **APP_NAME:** | The name of the application as used to create the Dockerhub Image
 
