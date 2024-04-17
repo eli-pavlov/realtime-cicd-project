@@ -26,6 +26,20 @@ $~~$
 
  work in progress
 
+Variables needed to be defined in Github for the Pipeline:
+(Repository --> Settings--> Secrets and Variables--> Actions--> New repository secret)
+--------------------------------------------------------------------------------------
+APP_NAME
+DOCKERHUB_TOKEN
+DOCKERHUB_USERNAME
+REMOTE_MACHINE_IP
+REMOTE_MACHINE_KEY
+REMOTE_MACHINE_PORT
+REMOTE_MACHINE_USER
+SNYK_TOKEN
+SONAR_ORGANIZATION
+SONAR_PROJECT_KEY
+SONAR_TOKEN
 $~~$
 
 $~$
