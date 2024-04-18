@@ -2,7 +2,7 @@
 <img src= "https://github.com/eli-pavlov/realtime-cicd-project/blob/master/docs/githubactions2.png" width=320 />
 <h1> GitHub Actions CI/CD Project</h1>
  
-<p> A kubernetes web app deployment pipeline using Github Actions together with Security & Code quality analysis tools. </p>
+<p> Kubernetes web app deployment pipeline using Github Actions together with Security & Code quality analysis tools. </p>
 
 <h4> <span> · </span> <a href="https://github.com/eli-pavlov/realtime-cicd-project/blob/master/README.md"> Documentation </a> <span> · </span> <a href="https://github.com/eli-pavlov/realtime-cicd-project/issues"> Report Bug </a> <span> · </span> <a href="https://github.com/eli-pavlov/realtime-cicd-project/issues"> Request Feature </a> </h4>
 
