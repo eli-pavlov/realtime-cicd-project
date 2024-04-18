@@ -2,7 +2,7 @@
 <img src= "https://github.com/eli-pavlov/realtime-cicd-project/blob/master/docs/githubactions2.png" width=320 />
 <h1> GitHub Actions CI/CD Project</h1>
  
-<p> Web app deployment on Kubernetes using Github Actions together with Security & Code quality analysis tools. </p>
+<p> Web app deployment on Kubernetes pipeline using Github Actions together with Security & Code quality analysis tools. </p>
 
 <h4> <span> · </span> <a href="https://github.com/eli-pavlov/realtime-cicd-project/blob/master/README.md"> Documentation </a> <span> · </span> <a href="https://github.com/eli-pavlov/realtime-cicd-project/issues"> Report Bug </a> <span> · </span> <a href="https://github.com/eli-pavlov/realtime-cicd-project/issues"> Request Feature </a> </h4>
 
@@ -84,7 +84,7 @@ A Snyk account.<br>
 
 
 **Secrets configured in your GitHub repository for:**<br>
-(Repository --> Settings--> Secrets and Variables--> Actions--> New repository secret):<br>
+(Repository --> Settings--> Secrets and Variables--> Actions--> New repository secret)<br>
 $---------------------------------------$
 
 **APP_NAME:** | The name of the application as used to create the Dockerhub Image
