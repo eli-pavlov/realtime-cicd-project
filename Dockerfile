@@ -15,4 +15,4 @@ RUN pip install --no-cache-dir Flask
 EXPOSE 5000
 
 # Define the command to run the Flask app when the container starts
-CMD ["python", "app.py"]2
+CMD ["python", "app.py"]
