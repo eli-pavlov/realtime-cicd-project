@@ -5,8 +5,8 @@ FROM python:3.9-alpine
 WORKDIR /app
 
 # Copy the Flask app code into the container
-COPY ./src/app.py /app/app.py
-COPY ./templates/index.html /app/templates/index.html
+COPY src/app.py /app/app
+COPY templates/index.html /app/templates/
 
 # Install Flask
 RUN pip install --no-cache-dir Flask
@@ -15,4 +15,4 @@ RUN pip install --no-cache-dir Flask
 EXPOSE 5000
 
 # Define the command to run the Flask app when the container starts
-CMD ["python", "app.py"]
+CMD ["python", "app.py"]2
