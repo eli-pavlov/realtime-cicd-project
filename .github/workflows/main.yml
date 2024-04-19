@@ -13,7 +13,6 @@ permissions:
 jobs:
   SonarCloud-CodeQuality-Analysis:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v4
         with:
@@ -29,6 +28,9 @@ jobs:
             -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }}
             -Dsonar.organization=${{ secrets.SONAR_ORGANIZATION }}
             -Dsonar.PythonVersion=3.9
+            -Dsonar.python.coverage.reportPaths=coverage.xml
+            -Dsonar.verbose=true
+
 
   SNYK-StaticSecurity-Analysis:
       runs-on: ubuntu-latest
