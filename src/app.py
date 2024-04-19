@@ -23,7 +23,7 @@ compliments = [
 #     "You make complex deployments look easy!",
 #     "Your DevOps practices are driving innovation and efficiency!",
 # ]
-
+#
 @app.route('/')
 def index():
     # Generate a random compliment
